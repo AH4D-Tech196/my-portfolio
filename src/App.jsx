@@ -24,12 +24,10 @@ const projects = [
   {
     number: "01",
     title: "NanoMend",
-    type: "FINAL YEAR PROJECT · AI / DEVELOPER TOOLS",
+    type: "PYTHON · AI / DEVELOPER TOOLS",
     description:
       "An offline AI-powered coding assistant designed to analyze code locally, combining a local language model with static code analysis.",
     tags: ["Python", "LLMs", "AST Analysis"],
-    status: "Developed",
-    link: "",
   },
   {
     number: "02",
@@ -38,8 +36,6 @@ const projects = [
     description:
       "A React application that looks up a city and displays current weather details, including temperature and humidity, using a public weather API.",
     tags: ["React", "JavaScript", "REST API"],
-    status: "Project",
-    link: "",
   },
   {
     number: "03",
@@ -48,7 +44,6 @@ const projects = [
     description:
       "A Python application that converts real-time speech to text and visualizes audio signals using Speech Recognition and Fast Fourier Transform (FFT).",
     tags: ["Python", "Speech Recognition", "FFT"],
-    status: "Academic project",
   },
   {
     number: "04",
@@ -57,8 +52,6 @@ const projects = [
     description:
       "A Java-based system for managing employee information and payroll operations using object-oriented programming concepts.",
     tags: ["Java", "OOP", "Application Logic"],
-    status: "Academic project",
-    link: "",
   },
   {
     number: "05",
@@ -67,8 +60,6 @@ const projects = [
     description:
       "A three-way traffic control simulation with congestion detection logic and adaptive timer allocation to improve traffic flow.",
     tags: ["Assembly Language", "Logic Design", "Simulation"],
-    status: "Academic project",
-    link: "",
   },
 ];
 
@@ -97,6 +88,7 @@ const skills = [
 
 const journey = [
   {
+    icon: GraduationCap,
     date: "2022 — 2026",
     title: "B.S. Computer Engineering",
     place: "University of Lahore",
@@ -104,18 +96,20 @@ const journey = [
       "Completed a Computer Engineering degree with coursework spanning software development, databases, machine learning, and computer systems.",
   },
   {
-    date: "ACADEMIC PROJECT",
-    title: "NanoMend · Final Year Project",
+    icon: Terminal,
+    date: "RECENT PROJECT",
+    title: "NanoMend - Final Year Project",
     place: "AI-powered coding assistant",
     detail:
       "Helped develop a local-first coding assistant exploring LLM-based code support and static analysis without relying on cloud inference.",
   },
   {
+    icon: Sparkles,
     date: "CURRENT FOCUS",
-    title: "Building practical software",
+    title: "Building practical softwares",
     place: "Independent learning",
     detail:
-      "Strengthening web development skills and building projects that connect software fundamentals with practical user needs.",
+      "Strengthening software development skills and building projects that connect software fundamentals with practical user needs.",
   },
 ];
 
@@ -332,15 +326,16 @@ export default function App() {
 
         <section className="section-wrap section-block" id="journey">
           <SectionHeading
-            eyebrow="THE BACKGROUND"
             title="My journey"
             right={<span className="section-count">01 — 03</span>}
           />
           <div className="journey-list">
-            {journey.map((item, i) => (
+            {journey.map(({ icon: Icon, ...item }) => (
               <article className="journey-item" key={item.title}>
                 <div className="journey-marker">
-                  <span>{String(i + 1).padStart(2, "0")}</span>
+                  <span>
+                    <Icon size={15} aria-hidden="true" />
+                  </span>
                   <i />
                 </div>
                 <div className="journey-date">{item.date}</div>
@@ -356,14 +351,9 @@ export default function App() {
 
         <section className="section-wrap section-block" id="skills">
           <SectionHeading
-            eyebrow="TOOLS I WORK WITH"
             title="Technical toolkit"
             right={<span className="section-count">04 CATEGORIES</span>}
           />
-          <p className="section-intro">
-            A growing set of tools and concepts developed through coursework,
-            personal learning, and academic projects.
-          </p>
           <div className="skills-grid">
             {skills.map(({ icon: Icon, title, items }, i) => (
               <article className="skill-card" key={title}>
@@ -386,14 +376,9 @@ export default function App() {
 
         <section className="section-wrap section-block" id="projects">
           <SectionHeading
-            eyebrow="SELECTED WORK"
             title="Projects in practice"
             right={<span className="section-count">05 PROJECTS</span>}
           />
-          <p className="section-intro">
-            A selection of projects that reflect what I've learned and the kinds
-            of problems I enjoy exploring.
-          </p>
           <div className="projects-list">
             {projects.map((project) => (
               <article className="project-row" key={project.number}>
@@ -407,26 +392,6 @@ export default function App() {
                       <span key={tag}>{tag}</span>
                     ))}
                   </div>
-                </div>
-                <div className="project-side">
-                  <span className="project-status">
-                    <i />
-                    {project.status}
-                  </span>
-                  {project.link ? (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`Open ${project.title}`}
-                    >
-                      <ArrowUpRight size={19} />
-                    </a>
-                  ) : (
-                    <span className="project-arrow">
-                      <ArrowUpRight size={19} />
-                    </span>
-                  )}
                 </div>
               </article>
             ))}
@@ -496,7 +461,7 @@ export default function App() {
         </section>
       </main>
       <footer className="footer section-wrap">
-        <span>DESIGNED & BUILT WITH CARE · 2026</span>
+        <span>DESIGNED & BUILT WITH FOCUS · 2026</span>
         <a href="#about" className="back-top">
           BACK TO TOP ↑
         </a>
