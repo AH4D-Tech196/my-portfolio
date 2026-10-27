@@ -196,7 +196,7 @@ export default function App() {
           </nav>
           <a
             className="top-cta"
-            href="https://github.com/AH4D-Tech196 "
+            href="https://github.com/AH4D-Tech196?tab=repositories "
             target="_blank"
             rel="noopener noreferrer"
           >
